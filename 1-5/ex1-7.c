@@ -7,6 +7,6 @@ main()
 
     while ((c=getchar()) != EOF)
         putchar(c);
-    /* send EOF to the terminal */
-    putchar(c);
+    /* print EOF to the terminal */
+    printf("%d\n", c);
 }
