@@ -14,3 +14,4 @@ Problems I need to work on still
 ================================
 
 * ex 1-14
+* ex 1-17
