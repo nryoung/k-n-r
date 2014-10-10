@@ -14,6 +14,4 @@ Problems that I need to go back to
 ==================================
 
 * ex 1-14
-* ex 1-17
-* ex 1-18
 * ex 1-19
