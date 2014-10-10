@@ -1,9 +1,8 @@
-/* INCORRECT SOLUTION, WIP */
 #include <stdio.h>
 #define MAXLINE 1000 /* maximum input line length */
-#define EIGHTY 80 /* line must be larger then this to get printed */
+#define LENGTH 80    /* print it out */
 
-int getLine(char line[]);
+int getLine(char line[], int maxline);
 
 void copy(char to[], char from[]);
 
@@ -16,44 +15,25 @@ main()
     char longest[MAXLINE];  /* longest line saved here */
 
     max = 0;
-    while((len = getLine(line)) > 0)
-        if (len > max) {
-            max = len;
-            copy(longest, line);
+    while((len = getLine(line, MAXLINE)) > 0)
+        if (len > LENGTH) {
+            printf("%s", line);
         }
-    if (max > EIGHTY) /* there was a line */
-        printf("line longer then 80 chars: %s\n", longest);
-    else
-        printf("line not longer then 80...\n");
-
     return 0;
 }
 
 /* getline: read a line into s, return length */
-int getLine(char s[])
+int getLine(char s[], int lim)
 {
     int c, i;
 
-    for (i=0; (c=getchar())!=EOF && c!='\n'; ++i) {
-        if (i >= MAXLINE) {
-            /* do nothing, line too long.
-             * but increment i to keep track
-             */
-        } else {
-            s[i] = c;
-        }
-    }
-
+    for (i=0; i < lim-1 && (c=getchar())!=EOF && c!='\n'; ++i)
+        s[i] = c;
     if (c == '\n') {
         s[i] = c;
         ++i;
     }
-
-    if (i >= MAXLINE) {
-        s[MAXLINE - 1] = '\0';
-    } else {
-        s[i] = '\0';
-    }
+    s[i] = '\0';
     return i;
 }
 
