@@ -52,7 +52,7 @@ main()
             }
             else
             {
-                putchar(32);
+                //putchar(32);
             }
         }
         printf("\n");
