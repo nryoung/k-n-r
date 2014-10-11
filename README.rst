@@ -13,4 +13,3 @@ My book work while reading through "The C Programming Language" by Brian W. Kern
 Problems that I need to go back to
 ==================================
 
-* ex 1-14
