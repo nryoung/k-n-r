@@ -5,7 +5,7 @@ int getLine(char line[], int maxline);
 
 void copy(char to[], char from[]);
 
-void reverse(char to[], char from[]);
+void reverse(char to[], char from[], int len);
 
 /* print the longest input line */
 main()
@@ -13,12 +13,13 @@ main()
     int len;                /* current line length */
     int max;                /* maximum length seen so far */
     char line[MAXLINE];     /* current input line */
-    char longest[MAXLINE];  /* longest line saved here */
+    char rev[MAXLINE];  /* longest line saved here */
 
     max = 0;
-    while((len = getLine(line, MAXLINE)) > 0)
-        reverse(longest, line);
-        printf("%s", longest);
+    while((len = getLine(line, MAXLINE)) > 0){
+        reverse(rev, line, len);
+        printf("%s\n", rev);
+    }
 
     return 0;
 }
@@ -48,8 +49,19 @@ void copy(char to[], char from[])
         ++i;
 }
 /* reverse: reverse 'from' to 'to'; assume 'to' is big enough */
-void reverse(char to[], char from[])
+void reverse(char to[], char from[], int len)
 {
-
-
+    int i, j;
+    i = len;
+    j = 0;
+    while(i >= 0) {
+        if (from[i] == '\0') {
+            --i;
+        } else {
+            to[j] = from[i];
+            ++j;
+            --i;
+        }
+    }
+    to[++j] = '\0';
 }
